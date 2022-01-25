@@ -69,6 +69,10 @@ OBJS := ssvdevice/ssvdevice.c \
 	hwif/sdio/sdio.c \
 	ssv6051-generic-wlan.c
 
+ccflags-y += -DCONFIG_FW_ALIGNMENT_CHECK
+ccflags-y += -DCONFIG_PLATFORM_SDIO_OUTPUT_TIMING=3
+ccflags-y += -DCONFIG_PLATFORM_SDIO_BLOCK_SIZE=128
+
 ifeq ($(findstring -DCONFIG_SSV6XXX_DEBUGFS, $(ccflags-y)), -DCONFIG_SSV6XXX_DEBUGFS)
 OBJS +=	smac/ssv6xxx_debugfs.c
 endif
